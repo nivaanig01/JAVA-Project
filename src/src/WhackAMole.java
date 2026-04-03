@@ -7,8 +7,8 @@ import java.util.Random;
 class BackgroundPanel extends JPanel {
     private Image backgroundImage;
 
-    public BackgroundPanel(ImageIcon icon) {
-    backgroundImage = icon.getImage();
+    public BackgroundPanel(String path) {
+        backgroundImage = new ImageIcon(path).getImage();
         setLayout(new GridLayout(3, 3, 10, 10));
     }
 
@@ -32,7 +32,7 @@ public class WhackAMole {
     Random rand = new Random();
 
     // Load mole image
-    ImageIcon moleIcon = new ImageIcon(getClass().getResource("/images/mole1.png"));
+    ImageIcon moleIcon = new ImageIcon("images/mole1.png");
 
     public WhackAMole() {
 
@@ -48,7 +48,8 @@ public class WhackAMole {
         frame.add(scoreLabel, BorderLayout.NORTH);
 
         // Background Panel
-        JPanel panel = new BackgroundPanel(new ImageIcon(getClass().getResource("/images/background.jpg.jpg")));
+        JPanel panel = new BackgroundPanel("images/background.jpg.jpg");
+
         // Create buttons
         for (int i = 0; i < 9; i++) {
             buttons[i] = new JButton();
